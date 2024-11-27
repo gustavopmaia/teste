@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 app.use((req, res, next) => {
-  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
+  const ip = req.socket.remoteAddress
   console.log(`IP do usuário: ${ip}`)
   next()
 })
